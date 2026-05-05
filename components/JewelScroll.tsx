@@ -197,11 +197,11 @@ export function JewelScroll() {
     const ih = img0.naturalHeight || img0.height;
     if (!iw || !ih) return;
 
-    const scale = Math.min(wCss / iw, hCss / ih);
+    const scale = Math.max(wCss / iw, hCss / ih);
     const dw = iw * scale;
     const dh = ih * scale;
     const dx = (wCss - dw) / 2;
-    const dy = (hCss - dh) / 2;
+    const dy = Math.max(0, (hCss - dh) * 0.3);
 
     ctx.imageSmoothingEnabled = true;
     ctx.imageSmoothingQuality = "high";
